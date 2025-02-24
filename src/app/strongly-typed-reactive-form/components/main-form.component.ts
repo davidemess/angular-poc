@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MainFormFactoryService } from '../services/main-form-factory.service';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,6 +6,7 @@ import { UserFormComponent } from './user-form.component';
 import { MainForm } from '../models/main-form.interface';
 import { AddressFormComponent } from './address-form.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MainDto } from '../models/main-dto.model';
 
 @Component({
   selector: 'app-main-form',
@@ -45,13 +46,20 @@ import { MatButtonModule } from '@angular/material/button';
   `,
   styles: ``,
 })
-export class MainFormComponent {
+export class MainFormComponent implements OnInit {
+  @Input() data?: MainDto;
+
   private readonly mainFormFactoryService = inject(MainFormFactoryService);
 
   public form: FormGroup<MainForm> = this.mainFormFactoryService.getForm();
 
+  ngOnInit(): void {
+    if (this.data) this.mainFormFactoryService.patchValue(this.form, this.data);
+  }
+
   onSubmit() {
-    console.log(this.form.getRawValue());
+    let value = this.mainFormFactoryService.getValue(this.form);
+    console.log(value);
     this.form.reset();
   }
 
