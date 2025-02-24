@@ -22,7 +22,13 @@ import { MatButtonModule } from '@angular/material/button';
       <app-user-form [form]="form.controls.userForm"></app-user-form>
       <app-address-form [form]="form.controls.addressForm"></app-address-form>
       <div>
-        <button mat-raised-button color="primary" type="submit" class="mx-2">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="mx-2"
+          [disabled]="form.invalid || form.pristine"
+        >
           Submit
         </button>
         <button
@@ -30,6 +36,7 @@ import { MatButtonModule } from '@angular/material/button';
           color="primary"
           (click)="onReset()"
           class="mx-2"
+          [disabled]="form.pristine"
         >
           Reset
         </button>
