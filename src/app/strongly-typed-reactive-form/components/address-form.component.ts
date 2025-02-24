@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddressForm } from '../models/address-form.interface';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-address-form',
   standalone: true,
-  imports: [MatFormFieldModule, ReactiveFormsModule],
+  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule],
   template: `
     <div [formGroup]="form">
       <mat-form-field appearance="fill">
