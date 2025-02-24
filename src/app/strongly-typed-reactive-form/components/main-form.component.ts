@@ -1,12 +1,14 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MainFormFactoryService } from '../services/main-form-factory.service';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserFormComponent } from './user-form.component';
 import { MainForm } from '../models/main-form.interface';
 import { AddressFormComponent } from './address-form.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MainDto } from '../models/main-dto.model';
+import { MatDialog } from '@angular/material/dialog';
+import { MainFormDialog } from './main-form-dialog.component';
 
 @Component({
   selector: 'app-main-form',
@@ -49,6 +51,7 @@ import { MainDto } from '../models/main-dto.model';
 export class MainFormComponent implements OnInit {
   @Input() data?: MainDto;
 
+  private readonly dialog = inject(MatDialog);
   private readonly mainFormFactoryService = inject(MainFormFactoryService);
 
   public form: FormGroup<MainForm> = this.mainFormFactoryService.getForm();
@@ -60,10 +63,17 @@ export class MainFormComponent implements OnInit {
   onSubmit() {
     let value = this.mainFormFactoryService.getValue(this.form);
     console.log(value);
+    this.openDialog(value);
     this.form.reset();
   }
 
   onReset() {
     this.form.reset();
+  }
+
+  openDialog(data: any) {
+    this.dialog.open(MainFormDialog, {
+      data: { title: 'Form value', value: data },
+    });
   }
 }
