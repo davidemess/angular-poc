@@ -21,14 +21,19 @@ import { MatButtonModule } from '@angular/material/button';
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <app-user-form [form]="form.controls.userForm"></app-user-form>
       <app-address-form [form]="form.controls.addressForm"></app-address-form>
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        [disabled]="form.invalid"
-      >
-        Submit
-      </button>
+      <div>
+        <button mat-raised-button color="primary" type="submit" class="mx-2">
+          Submit
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onReset()"
+          class="mx-2"
+        >
+          Reset
+        </button>
+      </div>
     </form>
   `,
   styles: ``,
@@ -40,6 +45,10 @@ export class MainFormComponent {
 
   onSubmit() {
     console.log(this.form.getRawValue());
+    this.form.reset();
+  }
+
+  onReset() {
     this.form.reset();
   }
 }
