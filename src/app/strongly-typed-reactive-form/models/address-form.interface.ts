@@ -4,5 +4,5 @@ export interface AddressForm {
   street: FormControl<string>;
   city: FormControl<string>;
   state: FormControl<string>;
-  zipCode: FormControl<number>;
+  zipCode: FormControl<string>;
 }

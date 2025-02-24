@@ -2,5 +2,5 @@ export class AddressDto {
   street: string = '';
   city: string = '';
   state: string = '';
-  zipCode: number = 0;
+  zipCode: string = '00000';
 }

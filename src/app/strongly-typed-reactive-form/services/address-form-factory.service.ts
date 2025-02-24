@@ -38,7 +38,7 @@ export class AddressFormFactoryService
           Validators.maxLength(50),
         ],
       }),
-      zipCode: this.fb.control<number>(0, {
+      zipCode: this.fb.control<string>('00000', {
         nonNullable: true,
         validators: [
           Validators.required,
