@@ -4,13 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-main-form',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      main-form works!
-    </p>
-  `,
-  styles: ``
+  template: ` <p>main-form works!</p> `,
+  styles: ``,
 })
-export class MainFormComponent {
-
-}
+export class MainFormComponent {}

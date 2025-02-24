@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
   ],
   template: `
     <div style="display: flex; justify-content: center; margin-top: 20px;">
@@ -33,8 +33,6 @@ import { RouterModule } from '@angular/router';
       </mat-list>
     </div>
   `,
-  styles: ``
+  styles: ``,
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

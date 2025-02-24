@@ -4,13 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-address-form',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      address-form works!
-    </p>
-  `,
-  styles: ``
+  template: ` <p>address-form works!</p> `,
+  styles: ``,
 })
-export class AddressFormComponent {
-
-}
+export class AddressFormComponent {}

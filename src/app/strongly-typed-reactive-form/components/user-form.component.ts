@@ -4,13 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-user-form',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      user-form works!
-    </p>
-  `,
-  styles: ``
+  template: ` <p>user-form works!</p> `,
+  styles: ``,
 })
-export class UserFormComponent {
-
-}
+export class UserFormComponent {}

@@ -15,7 +15,7 @@ import { MatRippleModule } from '@angular/material/core';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   template: `
     <mat-toolbar color="primary">
@@ -38,7 +38,7 @@ import { MatRippleModule } from '@angular/material/core';
       </button>
     </mat-menu>
   `,
-  styles: ``
+  styles: ``,
 })
 export class NavbarComponent {
   title = 'angular-poc';

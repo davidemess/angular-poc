@@ -6,5 +6,5 @@ import { HomeComponent } from './components/home.component';
 export const routes: Routes = [
   { path: 'home', pathMatch: 'full', component: HomeComponent },
   { path: 'mainform', pathMatch: 'full', component: MainFormComponent },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/home' },
 ];
