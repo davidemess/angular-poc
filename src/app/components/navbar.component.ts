@@ -4,6 +4,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-navbar',
@@ -23,7 +24,7 @@ import { RouterModule } from '@angular/router';
           <mat-icon>menu</mat-icon>
         </button>
         <span class="spacer"></span>
-        <span>{{ title }}</span>
+        <button mat-button [routerLink]="['/home']">{{ title }}</button>
       </mat-toolbar-row>
     </mat-toolbar>
     <mat-menu #menu="matMenu">
