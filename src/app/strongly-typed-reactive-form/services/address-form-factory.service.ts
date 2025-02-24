@@ -1,11 +1,15 @@
 import { inject, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddressForm } from '../models/address-form.interface';
+import { FormFactoryService } from '../models/form-factory-service.interface';
+import { AddressDto } from '../models/address-dto.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AddressFormFactoryService {
+export class AddressFormFactoryService
+  implements FormFactoryService<AddressForm, AddressDto>
+{
   private readonly fb = inject(FormBuilder);
 
   public getForm(): FormGroup<AddressForm> {
@@ -42,5 +46,25 @@ export class AddressFormFactoryService {
         ],
       }),
     });
+  }
+
+  public patchValue(form: FormGroup<AddressForm>, value: AddressDto): void {
+    form.patchValue({
+      street: value.street,
+      city: value.city,
+      state: value.state,
+      zipCode: value.zipCode,
+    });
+  }
+
+  public getValue(form: FormGroup<AddressForm>): AddressDto {
+    const formValue = form.getRawValue();
+    return {
+      ...new AddressDto(),
+      street: formValue.street,
+      city: formValue.city,
+      state: formValue.state,
+      zipCode: formValue.zipCode,
+    };
   }
 }
